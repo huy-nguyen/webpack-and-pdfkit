@@ -11,6 +11,14 @@ export default () => {
       filename:  '[name].js',
       chunkFilename: '[name].js',
     },
+    module: {
+      rules: [
+        {
+          test: /node_modules\/(pdfkit|brotli|fontkit|linebreak|png-js|unicode-properties)/,
+          loader: 'transform-loader?brfs',
+        }
+      ]
+    },
     plugins: [
       new HtmlWebpackPlugin(),
     ]
